@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reatrix Network | Official Holding Corporate</title>
+    
+    <style>
+        :root {
+            --p: #2563eb;
+            --p-light: #eff6ff;
+            --dark: #0f172a;
+            --slate: #64748b;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        header { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); height: 70px; display: flex; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-size: 20px; font-weight: 900; text-decoration: none; color: var(--dark); letter-spacing: -1px; }
+        .logo span { color: var(--p); }
+
+        /* HERO SECTION */
+        .hero { padding: 160px 0 60px; text-align: center; }
+        .hero-badge { display: inline-block; padding: 8px 16px; background: var(--p-light); color: var(--p); border-radius: 100px; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 2px; border: 1px solid rgba(37, 99, 235, 0.1); }
+        .hero h1 { font-size: clamp(34px, 7vw, 68px); font-weight: 900; line-height: 1.2; margin-bottom: 24px; letter-spacing: 3px; color: var(--dark); text-transform: uppercase; }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 5px; }
+        .hero p { font-size: clamp(16px, 4vw, 19px); color: var(--slate); max-width: 850px; margin: 0 auto 40px; }
+
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 60px; }
+        @media (min-width: 768px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+        .stat-card { background: white; padding: 25px; border-radius: 24px; border: 1px solid var(--border); text-align: center; }
+        .stat-card h2 { font-size: 32px; color: var(--p); font-weight: 900; }
+        .stat-card p { font-size: 11px; font-weight: 800; color: var(--slate); text-transform: uppercase; }
+
+        /* About Us Unit Bisnis */
+        .about-unit-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 80px; }
+        @media (min-width: 768px) { .about-unit-grid { grid-template-columns: 1fr 1fr; } }
+        .about-unit-card { padding: 40px; border-radius: 30px; background: #fafafa; border: 1px solid var(--border); }
+        .about-unit-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: var(--p); }
+
+        /* TIMELINE RTX STYLE */
+        .rtx-timeline { display: grid; grid-template-columns: 1fr; gap: 30px; margin: 60px 0; position: relative; padding-left: 20px; }
+        .rtx-timeline::before { content: ""; position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: var(--p-light); }
+        .timeline-item { position: relative; padding-bottom: 20px; }
+        .timeline-year { font-size: 24px; font-weight: 900; color: var(--p); display: block; margin-bottom: 5px; position: relative; }
+        .timeline-year::before { content: ""; position: absolute; left: -26px; top: 12px; width: 12px; height: 12px; background: var(--p); border-radius: 50%; border: 3px solid white; outline: 3px solid var(--p-light); }
+        .timeline-desc { font-size: 15px; color: var(--slate); line-height: 1.7; }
+        .timeline-desc strong { color: var(--dark); }
+
+        /* MODERN ORGANIZATIONAL STRUCTURE */
+        .org-section { padding: 60px 0; }
+        .org-title { text-align: center; margin-bottom: 50px; }
+        .org-title h2 { font-size: 36px; font-weight: 900; }
+        
+        .org-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .org-item { border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .org-item .role { font-size: 10px; font-weight: 800; color: var(--p); text-transform: uppercase; letter-spacing: 1px; display: block; }
+        .org-item .name { font-size: 17px; font-weight: 700; color: var(--dark); }
+
+        /* WRITERS SECTION */
+        .writers-container { margin-top: 40px; }
+        .writers-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+        .writers-header h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--slate); letter-spacing: 1px; white-space: nowrap; }
+        .writers-header .line { height: 1px; background: var(--border); width: 100%; }
+        
+        .writers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        @media (min-width: 768px) { .writers-grid { grid-template-columns: repeat(4, 1fr); } }
+        
+        .writer-card { padding: 15px 20px; background: #fff; border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .writer-card:hover { border-color: var(--p); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08); }
+        .writer-card .dot { width: 6px; height: 6px; background: var(--p); border-radius: 50%; opacity: 0.5; }
+        .writer-card span { font-size: 14px; font-weight: 600; color: var(--dark); }
+        
+        .special-cor { grid-column: 1 / -1; margin-top: 10px; background: var(--dark); border: none; }
+        .special-cor span { color: white; }
+        .special-cor .label { font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-right: 10px; }
+
+        /* Unit Bisnis Cards */
+        .section-header { text-align: center; margin-bottom: 50px; padding-top: 40px; }
+        .grid-entities { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 80px; }
+        @media (min-width: 768px) { .grid-entities { grid-template-columns: 1fr 1fr; } }
+        .entity-card { padding: 50px 40px; border-radius: 40px; background: white; border: 2px solid var(--border); transition: 0.4s; }
+        .entity-card:hover { border-color: var(--p); transform: translateY(-10px); }
+        .entity-card a { display: inline-block; margin-top: 20px; padding: 12px 25px; background: var(--dark); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; }
+
+        /* Reviews */
+        .reviews { padding: 80px 0; background: #fafafa; border-radius: 50px; margin-bottom: 80px; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .rev-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--border); }
+        .stars { color: #fbbf24; margin-bottom: 10px; }
+        
+        /* Contact Section */
+        .contact-section { background: var(--dark); border-radius: 40px; padding: 60px 40px; color: white; margin-bottom: 80px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 80px; } }
+        input, select, textarea { width: 100%; padding: 18px; border-radius: 15px; border: 1px solid #334155; background: #1e293b; color: white; margin-bottom: 15px; }
+        .btn-send { background: var(--p); color: white; width: 100%; padding: 20px; border: none; border-radius: 15px; font-weight: 800; cursor: pointer; }
+
+        /* Footer */
+        footer { padding: 60px 0 40px; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 50px; margin-bottom: 40px; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.2fr 1fr; } }
+        
+        .footer-brand p { color: var(--slate); font-size: 14px; margin-top: 10px; line-height: 1.6; }
+        .footer-address { margin-top: 20px; color: var(--slate); font-size: 13px; font-style: normal; line-height: 1.6; display: block; }
+        
+        .footer-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .footer-col h4 { font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; color: var(--dark); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { text-decoration: none; color: var(--slate); font-size: 14px; transition: 0.2s; }
+        .footer-col ul li a:hover { color: var(--p); }
+        
+        .copyright { text-align: center; font-size: 13px; color: var(--slate); padding-top: 40px; border-top: 1px solid var(--border); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo">REATRIX<span>NETWORK</span></a>
+            <div style="font-size: 10px; font-weight: 800; color: var(--slate); letter-spacing: 1px;">DIGITAL HOLDING</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="hero-badge">Indonesian Digital Ecosystem</span>
+            <h1>The New <span>Digital Empire</span> Is Here.</h1>
+            <p>Holding company modern yang menaungi infrastruktur media gaming dan commerce digital terkemuka. Kami menciptakan sinergi antara kepercayaan informasi dan kemudahan transaksi.</p>
+            
+            <div class="stats">
+                <div class="stat-card"><h2>1.2M+</h2><p>Monthly Traffic</p></div>
+                <div class="stat-card"><h2>500K+</h2><p>Transactions</p></div>
+                <div class="stat-card"><h2>99.9%</h2><p>System Uptime</p></div>
+                <div class="stat-card"><h2>2</h2><p>Official PT</p></div>
+            </div>
+        </section>
+
+        <section class="about-unit-grid">
+            <div class="about-unit-card">
+                <h3>Apa itu ReatrixWeb?</h3>
+                <p>Platform media jurnalisme gaming dan teknologi yang menyajikan informasi akurat, edukasi hardware, dan analisis mendalam bagi komunitas gamer di Indonesia dengan kampanye #HarusTauLebih.</p>
+            </div>
+            <div class="about-unit-card">
+                <h3>Apa itu ReatrixShop?</h3>
+                <p>Platform commerce digital otomatis yang menyediakan layanan top-up game dan produk virtual secara legal, instan, dan aman 24 jam nonstop.</p>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 style="font-size:36px; font-weight:900;">Perjalanan Kami</h2>
+        </div>
+        <div class="rtx-timeline">
+            <div class="timeline-item">
+                <span class="timeline-year">2023</span>
+                <p class="timeline-desc"><strong>Reatrixweb</strong> resmi mengudara sebagai platform informasi digital independen, menyajikan konten segar seputar video game dan teknologi terbaru.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2024</span>
+                <p class="timeline-desc">Fokus pada penguatan konten melalui rubrik ulasan mendalam (Review) dan panduan (Guide). Di tahun ini pula, kami mulai mengintegrasikan layanan commerce dengan meluncurkan <strong>ReatrixShop</strong> melalui subdomain <em>shop.reatrixweb.com</em>.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2025</span>
+                <p class="timeline-desc">Penguatan basis komunitas dan profesionalisme manajemen melalui pendirian badan hukum resmi: <strong>PT REATRIX MEDIA INDONESIA</strong> sebagai entitas utama pengelola media.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">2026</span>
+                <p class="timeline-desc">Ekspansi unit bisnis strategis. ReatrixShop bertransformasi menjadi unit mandiri yang dikelola oleh entitas baru, <strong>PT REATRIX DIGITAL INDOKARYA</strong>, guna meningkatkan kualitas layanan digital bagi pengguna.</p>
+            </div>
+        </div>
+
+        <section class="org-section">
+            <div class="org-title">
+                <h2 style="font-size:36px; font-weight:900;">Struktur Organisasi</h2>
+            </div>
+            
+            <div class="org-grid">
+                <div class="org-item"><span class="role">Chief Revenue Officer</span><span class="name">Wahyu Hidayat</span></div>
+                <div class="org-item"><span class="role">Country Head</span><span class="name">Rahma Nia Permata Putri</span></div>
+                <div class="org-item"><span class="role">Business Development</span><span class="name">Hendra Setiawan</span></div>
+                <div class="org-item"><span class="role">General Relations</span><span class="name">Suprianto</span></div>
+                <div class="org-item"><span class="role">Social Media Management</span><span class="name">Arya Penangsang & Dhea Ananda</span></div>
+                <div class="org-item"><span class="role">Editor</span><span class="name">Fajar Ramadhan</span></div>
+                <div class="org-item"><span class="role">Creative Content</span><span class="name">Indah Permata & Genta Buana</span></div>
+                <div class="org-item"><span class="role">Finance</span><span class="name">Yuyun Sri Wahyuni</span></div>
+            </div>
+
+            <div class="writers-container">
+                <div class="writers-header">
+                    <h4>Content Writers</h4>
+                    <div class="line"></div>
+                </div>
+                <div class="writers-grid">
+                    <div class="writer-card"><div class="dot"></div><span>Siska Amalia</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Ayuna Tambius</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Wahyu Aprianto</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Tarno Mauka</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Nadine Az-Zahra</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Clarissa Putri</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Bintang Cakrawala</span></div>
+                    <div class="writer-card"><div class="dot"></div><span>Dika Syahputra</span></div>
+                    <div class="writer-card special-cor">
+                        <span class="label">Special Correspondent</span>
+                        <span>Maya Kartika</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 style="font-size:36px; font-weight:900;">Unit Bisnis Strategis</h2>
+        </div>
+        <section class="grid-entities">
+            <div class="entity-card">
+                <span class="pt-tag">PT REATRIX MEDIA INDONESIA</span>
+                <h3>ReatrixWeb</h3>
+                <p>Media jurnalisme paling berpengaruh bagi tech-enthusiast dan gamer Indonesia.</p>
+                <a href="https://reatrixweb.com">Visit Platform →</a>
+            </div>
+            <div class="entity-card">
+                <span class="pt-tag">PT REATRIX DIGITAL INDOKARYA</span>
+                <h3>ReatrixShop</h3>
+                <p>Solusi top-up otomatis tercepat dengan sistem pembayaran legal dan aman.</p>
+                <a href="https://reatrixshop.com">Shop Now →</a>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2 style="text-align: center; margin-bottom: 40px; font-weight: 900;">Ulasan ReatrixShop</h2>
+            <div class="container review-grid">
+                <div class="rev-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14px; color: var(--slate);">"Proses otomatisnya luar biasa cepat, diamond masuk dalam hitungan detik!"</p>
+                    <b style="display:block; margin-top:15px; font-size:12px;">— Adi Wijaya</b>
+                </div>
+                <div class="rev-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14px; color: var(--slate);">"Tempat top up terpercaya dengan legalitas PT yang jelas."</p>
+                    <b style="display:block; margin-top:15px; font-size:12px;">— Sarah Quinn</b>
+                </div>
+                <div class="rev-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size: 14px; color: var(--slate);">"Customer support responsif dan harga sangat bersaing."</p>
+                    <b style="display:block; margin-top:15px; font-size:12px;">— Rizky P.</b>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 style="font-size: 40px; font-weight: 900;">Connect With Us.</h2>
+                    <p>Hubungi manajemen REATRIX Network untuk kerjasama media atau partnership bisnis.</p>
+                    <div style="margin-top: 30px; font-weight: 800; font-size: 20px; color: var(--p);">admin@reatrixweb.com</div>
+                </div>
+                <div class="form-box">
+                    <form action="mailto:admin@reatrixweb.com" method="post" enctype="text/plain">
+                        <input type="text" name="Nama" placeholder="Nama Lengkap" required>
+                        <select name="Keperluan">
+                            <option value="Iklan">Pemasangan Iklan</option>
+                            <option value="Partnership">Partnership Bisnis</option>
+                        </select>
+                        <textarea name="Pesan" rows="4" placeholder="Detail pesan Anda..." required></textarea>
+                        <button type="submit" class="btn-send">Kirim Pesan Korporat</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2 class="logo">REATRIX<span>NETWORK</span></h2>
+                <p>Membangun masa depan industri media dan niaga digital Indonesia.</p>
+                <address class="footer-address">
+                    Jln. Raya baron, Kajang, Bungur,<br>
+                    Kec. Sukomoro, Kabupaten Nganjuk,<br>
+                    Jawa Timur 64481
+                </address>
+            </div>
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>Unit Bisnis</h4>
+                    <ul>
+                        <li><a href="https://reatrixweb.com">ReatrixWeb Media</a></li>
+                        <li><a href="https://reatrixshop.com">ReatrixShop Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">Copyright © 2026 Reatrix Network, all right reversed.</div>
+    </footer>
+
+</body>
+</html>
