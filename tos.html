@@ -8,146 +8,105 @@
     <style>
         :root {
             --p: #2563eb;
-            --p-light: #eff6ff;
             --dark: #0f172a;
             --slate: #64748b;
-            --bg: #ffffff;
-            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --bg: #fcfdfe; /* Warna latar belakang sangat bersih */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 
         body { 
-            background-color: #f8fafc;
+            background-color: var(--bg);
             color: var(--slate);
-            line-height: 1.7;
+            line-height: 1.8;
+            padding: 80px 24px;
         }
 
-        /* Header Gaya Reatrix */
-        .legal-header {
-            background: var(--gradient);
-            padding: 80px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .legal-header h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .legal-header p {
-            opacity: 0.9;
-            font-size: 16px;
-        }
-
-        /* Konten Wrapper */
         .container {
-            max-width: 900px;
-            margin: -50px auto 100px;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .content-card {
-            background: white;
-            padding: 60px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
+        .back-link {
+            display: inline-block;
             text-decoration: none;
-            color: white;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 12px;
+            color: var(--p);
+            font-weight: 700;
+            margin-bottom: 40px;
             font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
-        .back-btn:hover { background: rgba(255,255,255,0.3); transform: translateX(-5px); }
+        .back-link:hover { opacity: 0.7; }
+
+        h1 {
+            color: var(--dark);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+        }
+
+        .last-update {
+            font-size: 14px;
+            margin-bottom: 60px;
+            display: block;
+        }
 
         h3 { 
             color: var(--dark); 
-            font-size: 22px; 
-            margin: 40px 0 15px; 
+            font-size: 20px; 
+            margin: 50px 0 15px; 
             font-weight: 700;
-            display: flex;
-            align-items: center;
+            letter-spacing: -0.5px;
         }
 
-        h3::before {
-            content: "";
-            width: 8px;
-            height: 24px;
-            background: var(--gradient);
-            display: inline-block;
-            margin-right: 15px;
-            border-radius: 4px;
-        }
-
-        p { margin-bottom: 15px; }
+        p { margin-bottom: 20px; font-size: 16px; }
         
-        ul { margin-bottom: 20px; padding-left: 25px; }
-        li { margin-bottom: 10px; }
+        ul { margin-bottom: 25px; padding-left: 20px; }
+        li { margin-bottom: 12px; }
 
-        strong { color: var(--dark); }
+        strong { color: var(--dark); font-weight: 600; }
 
-        .footer-note {
-            text-align: center;
-            margin-top: 50px;
+        .footer-line {
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
             font-size: 13px;
-            color: var(--slate);
         }
 
-        /* Responsive Mobile */
-        @media (max-width: 768px) {
-            .content-card { padding: 30px; border-radius: 20px; }
-            .legal-header { padding: 60px 20px; }
-        }
+        /* Menghilangkan scrollbar tapi tetap bisa scroll */
+        ::-webkit-scrollbar { width: 0px; }
     </style>
 </head>
 <body>
 
-    <div class="legal-header">
-        <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
-        <h1>Terms of Service</h1>
-        <p>Aturan & Ketentuan Penggunaan Reatrix Network</p>
-    </div>
-
     <div class="container">
-        <div class="content-card">
-            <p><strong>Terakhir Diperbarui:</strong> 17 Februari 2026</p>
-            <p>Selamat datang di Reatrix Network. Dengan mengakses situs kami, Anda dianggap telah memahami dan menyetujui seluruh ketentuan yang ditetapkan oleh manajemen PT REATRIX MEDIA INDONESIA dan PT REATRIX DIGITAL INDOKARYA.</p>
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <h1>Terms of Service</h1>
+        <span class="last-update">Last Updated: February 17, 2026</span>
 
-            <h3>1. Hak Kekayaan Intelektual</h3>
-            <p>Seluruh konten, logo, desain, dan aset digital yang ada di situs ini adalah milik sah dari Reatrix Network. Penggunaan tanpa izin untuk kepentingan komersial dapat dikenakan sanksi sesuai hukum yang berlaku di Indonesia.</p>
+        <p>Dengan menggunakan layanan <strong>Reatrix Network</strong>, Anda setuju untuk mematuhi ketentuan yang ditetapkan oleh <strong>PT REATRIX MEDIA INDONESIA</strong> dan <strong>PT REATRIX DIGITAL INDOKARYA</strong>. Harap baca dengan seksama.</p>
 
-            <h3>2. Layanan ReatrixShop</h3>
-            <p>Setiap transaksi produk digital (Top Up, Voucher, dsb) diatur sebagai berikut:</p>
-            <ul>
-                <li>Pengguna wajib memasukkan data akun yang benar.</li>
-                <li>Sistem kami memproses pesanan secara otomatis setelah pembayaran terverifikasi.</li>
-                <li>Tidak ada pengembalian dana (refund) untuk kesalahan input data oleh pengguna.</li>
-            </ul>
+        <h3>1. Ketentuan Umum</h3>
+        <p>Layanan kami mencakup platform media dan transaksi produk digital. Kami berhak mengubah, menambah, atau menghapus bagian dari ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya.</p>
 
-            <h3>3. Batasan Tanggung Jawab</h3>
-            <p>Kami berusaha memberikan layanan 24/7, namun tidak bertanggung jawab atas kerugian akibat gangguan jaringan pihak ketiga, pemeliharaan server provider game, atau kesalahan sistem pembayaran di luar kendali kami.</p>
+        <h3>2. Hak Cipta & Konten</h3>
+        <p>Semua materi yang diterbitkan melalui ReatrixWeb, termasuk teks, grafis, dan logo, dilindungi oleh undang-undang hak cipta Indonesia. Dilarang keras menduplikasi konten tanpa izin resmi.</p>
 
-            <h3>4. Hukum & Yurisdiksi</h3>
-            <p>Ketentuan ini tunduk pada hukum Republik Indonesia. Jika terjadi sengketa, penyelesaian akan diutamakan melalui jalur kekeluargaan atau melalui pengadilan yang ditunjuk di wilayah Nganjuk, Jawa Timur.</p>
+        <h3>3. Kebijakan Transaksi</h3>
+        <ul>
+            <li>Pengguna bertanggung jawab atas kebenaran informasi akun yang diberikan saat transaksi.</li>
+            <li>ReatrixShop tidak memberikan kompensasi atas kesalahan yang disebabkan oleh kelalaian pengguna.</li>
+            <li>Segala bentuk kecurangan akan dilaporkan kepada pihak berwajib dan akun akan diblokir permanen.</li>
+        </ul>
 
-            <div class="footer-note">
-                &copy; 2026 Reatrix Network. Powered by PT Reatrix Media Indonesia.
-            </div>
+        <h3>4. Batasan Tanggung Jawab</h3>
+        <p>Kami tidak bertanggung jawab atas kerugian ekonomi atau data yang disebabkan oleh kegagalan infrastruktur pihak ketiga (Provider Game, ISP, atau Payment Gateway).</p>
+
+        <div class="footer-line">
+            &copy; 2026 Reatrix Network. Corporate Legal Department.
         </div>
     </div>
 
