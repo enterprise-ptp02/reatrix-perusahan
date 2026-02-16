@@ -4,83 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Reatrix Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --p: #2563eb;
+            --p-light: #eff6ff;
             --dark: #0f172a;
             --slate: #64748b;
-            --bg: #f8fafc;
+            --bg: #ffffff;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            line-height: 1.8; 
-            padding: 40px 20px; 
-            color: var(--slate); 
-            max-width: 900px; 
-            margin: auto;
-            background-color: var(--bg);
+            background-color: #f8fafc;
+            color: var(--slate);
+            line-height: 1.7;
         }
-        .card {
-            background: white;
-            padding: 50px;
-            border-radius: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-        }
-        h1, h2, h3 { color: var(--dark); font-weight: 800; }
-        h1 { font-size: 32px; margin-bottom: 10px; border-bottom: 3px solid var(--p); display: inline-block; }
-        h3 { margin-top: 30px; border-left: 4px solid var(--p); padding-left: 15px; }
-        .back-link { 
-            text-decoration: none; 
-            color: var(--p); 
-            font-weight: 700; 
-            display: inline-flex; 
-            align-items: center; 
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        .footer-note {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 13px;
+
+        /* Header Gaya Reatrix */
+        .legal-header {
+            background: var(--gradient);
+            padding: 80px 20px;
             text-align: center;
+            color: white;
         }
+
+        .legal-header h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .legal-header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        /* Konten Wrapper */
+        .container {
+            max-width: 900px;
+            margin: -50px auto 100px;
+            padding: 0 20px;
+        }
+
+        .content-card {
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { background: rgba(255,255,255,0.3); transform: translateX(-5px); }
+
+        h3 { 
+            color: var(--dark); 
+            font-size: 22px; 
+            margin: 40px 0 15px; 
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::before {
+            content: "";
+            width: 8px;
+            height: 24px;
+            background: var(--gradient);
+            display: inline-block;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        p { margin-bottom: 15px; }
+        
+        ul { margin-bottom: 20px; padding-left: 25px; }
+        li { margin-bottom: 10px; }
+
         strong { color: var(--dark); }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 13px;
+            color: var(--slate);
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .content-card { padding: 30px; border-radius: 20px; }
+            .legal-header { padding: 60px 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
-
-    <div class="card">
+    <div class="legal-header">
+        <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
         <h1>Terms of Service</h1>
-        <p><strong>Terakhir Diperbarui:</strong> 17 Februari 2026</p>
+        <p>Aturan & Ketentuan Penggunaan Reatrix Network</p>
+    </div>
 
-        <p>Selamat datang di Reatrix Network. Dengan mengakses situs web kami dan layanan terkait, Anda dianggap telah membaca, memahami, dan menyetujui untuk terikat oleh Ketentuan Layanan ini.</p>
+    <div class="container">
+        <div class="content-card">
+            <p><strong>Terakhir Diperbarui:</strong> 17 Februari 2026</p>
+            <p>Selamat datang di Reatrix Network. Dengan mengakses situs kami, Anda dianggap telah memahami dan menyetujui seluruh ketentuan yang ditetapkan oleh manajemen PT REATRIX MEDIA INDONESIA dan PT REATRIX DIGITAL INDOKARYA.</p>
 
-        <h3>1. Definisi</h3>
-        <p>Reatrix Network adalah ekosistem digital yang dikelola oleh <strong>PT REATRIX MEDIA INDONESIA</strong> (Divisi Media) dan <strong>PT REATRIX DIGITAL INDOKARYA</strong> (Divisi Commerce/ReatrixShop).</p>
+            <h3>1. Hak Kekayaan Intelektual</h3>
+            <p>Seluruh konten, logo, desain, dan aset digital yang ada di situs ini adalah milik sah dari Reatrix Network. Penggunaan tanpa izin untuk kepentingan komersial dapat dikenakan sanksi sesuai hukum yang berlaku di Indonesia.</p>
 
-        <h3>2. Penggunaan Layanan Media</h3>
-        <p>Konten yang diterbitkan oleh ReatrixWeb dilindungi oleh hak cipta. Pengguna dilarang menyalin, mendistribusikan ulang, atau memodifikasi konten tanpa izin tertulis dari manajemen PT REATRIX MEDIA INDONESIA.</p>
+            <h3>2. Layanan ReatrixShop</h3>
+            <p>Setiap transaksi produk digital (Top Up, Voucher, dsb) diatur sebagai berikut:</p>
+            <ul>
+                <li>Pengguna wajib memasukkan data akun yang benar.</li>
+                <li>Sistem kami memproses pesanan secara otomatis setelah pembayaran terverifikasi.</li>
+                <li>Tidak ada pengembalian dana (refund) untuk kesalahan input data oleh pengguna.</li>
+            </ul>
 
-        <h3>3. Ketentuan Transaksi (ReatrixShop)</h3>
-        <ul>
-            <li>Semua transaksi top-up dan produk digital bersifat final dan tidak dapat dibatalkan setelah diproses.</li>
-            <li>Pengguna bertanggung jawab penuh atas keakuratan data (ID Game/Username) yang dimasukkan. Kesalahan input oleh pengguna bukan tanggung jawab PT REATRIX DIGITAL INDOKARYA.</li>
-            <li>Layanan kami beroperasi secara otomatis 24 jam, namun kami berhak melakukan pemeliharaan sistem sewaktu-waktu.</li>
-        </ul>
+            <h3>3. Batasan Tanggung Jawab</h3>
+            <p>Kami berusaha memberikan layanan 24/7, namun tidak bertanggung jawab atas kerugian akibat gangguan jaringan pihak ketiga, pemeliharaan server provider game, atau kesalahan sistem pembayaran di luar kendali kami.</p>
 
-        <h3>4. Batasan Tanggung Jawab</h3>
-        <p>Reatrix Network tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan atau ketidakmampuan penggunaan layanan kami, termasuk namun tidak terbatas pada gangguan teknis dari pihak provider game atau sistem pembayaran.</p>
+            <h3>4. Hukum & Yurisdiksi</h3>
+            <p>Ketentuan ini tunduk pada hukum Republik Indonesia. Jika terjadi sengketa, penyelesaian akan diutamakan melalui jalur kekeluargaan atau melalui pengadilan yang ditunjuk di wilayah Nganjuk, Jawa Timur.</p>
 
-        <h3>5. Hukum yang Berlaku</h3>
-        <p>Ketentuan Layanan ini diatur oleh dan ditafsirkan sesuai dengan hukum Republik Indonesia. Setiap perselisihan yang timbul akan diselesaikan secara musyawarah atau melalui yurisdiksi pengadilan di Kabupaten Nganjuk, Jawa Timur.</p>
-
-        <div class="footer-note">
-            &copy; 2026 Reatrix Network. Segala hak dilindungi undang-undang.<br>
-            <strong>PT REATRIX MEDIA INDONESIA & PT REATRIX DIGITAL INDOKARYA</strong>
+            <div class="footer-note">
+                &copy; 2026 Reatrix Network. Powered by PT Reatrix Media Indonesia.
+            </div>
         </div>
     </div>
 
