@@ -4,101 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Reatrix Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --p: #7c3aed; /* Warna ungu untuk membedakan dengan TOS */
+            --p: #7c3aed; /* Warna ungu untuk Privacy agar sedikit beda dengan TOS */
             --dark: #0f172a;
             --slate: #64748b;
-            --bg: #f8fafc;
+            --bg: #fcfdfe; 
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            line-height: 1.8; 
-            padding: 40px 20px; 
-            color: var(--slate); 
-            max-width: 900px; 
-            margin: auto;
             background-color: var(--bg);
+            color: var(--slate);
+            line-height: 1.8;
+            padding: 80px 24px;
         }
-        .card {
-            background: white;
-            padding: 50px;
-            border-radius: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
-        h1, h2, h3 { color: var(--dark); font-weight: 800; }
-        h1 { font-size: 32px; margin-bottom: 10px; border-bottom: 3px solid var(--p); display: inline-block; }
-        h3 { margin-top: 30px; border-left: 4px solid var(--p); padding-left: 15px; }
-        .back-link { 
-            text-decoration: none; 
-            color: var(--p); 
-            font-weight: 700; 
-            display: inline-flex; 
-            align-items: center; 
-            margin-bottom: 30px;
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--p);
+            font-weight: 700;
+            margin-bottom: 40px;
             font-size: 14px;
+            transition: 0.2s;
         }
-        .footer-note {
-            margin-top: 50px;
-            padding-top: 20px;
+
+        .back-link:hover { opacity: 0.7; }
+
+        h1 {
+            color: var(--dark);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+        }
+
+        .last-update {
+            font-size: 14px;
+            margin-bottom: 60px;
+            display: block;
+        }
+
+        h3 { 
+            color: var(--dark); 
+            font-size: 20px; 
+            margin: 50px 0 15px; 
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p { margin-bottom: 20px; font-size: 16px; }
+        
+        ul { margin-bottom: 25px; padding-left: 20px; }
+        li { margin-bottom: 12px; }
+
+        strong { color: var(--dark); font-weight: 600; }
+
+        .footer-line {
+            margin-top: 100px;
+            padding-top: 30px;
             border-top: 1px solid #e2e8f0;
             font-size: 13px;
-            text-align: center;
         }
-        .highlight {
-            background-color: #f1f5f9;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--p);
-            margin: 20px 0;
-            color: var(--dark);
-            font-weight: 500;
-        }
+
+        ::-webkit-scrollbar { width: 0px; }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-link">← Kembali ke Beranda</a>
-
-    <div class="card">
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
         <h1>Privacy Policy</h1>
-        <p><strong>Terakhir Diperbarui:</strong> 17 Februari 2026</p>
+        <span class="last-update">Last Updated: February 17, 2026</span>
 
-        <p>Di Reatrix Network, kami berkomitmen untuk melindungi privasi Anda. Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan menjaga informasi pribadi Anda saat menggunakan layanan kami.</p>
-
-        <div class="highlight">
-            "Kami menghormati data Anda. Reatrix Network tidak akan pernah menjual informasi pribadi Anda kepada pihak ketiga untuk tujuan pemasaran."
-        </div>
+        <p>Privasi Anda adalah prioritas utama kami. Kebijakan Privasi ini menjelaskan bagaimana <strong>Reatrix Network</strong> (PT REATRIX MEDIA INDONESIA & PT REATRIX DIGITAL INDOKARYA) mengelola informasi pribadi yang kami terima melalui seluruh unit bisnis kami.</p>
 
         <h3>1. Informasi yang Kami Kumpulkan</h3>
-        <p>Kami mengumpulkan informasi yang diperlukan untuk memproses transaksi atau meningkatkan layanan media kami, meliputi:</p>
+        <p>Kami hanya mengumpulkan informasi yang benar-benar diperlukan untuk memberikan layanan terbaik, seperti:</p>
         <ul>
-            <li><strong>Data Transaksi:</strong> ID Game, Nomor WhatsApp, dan detail pembayaran (diproses secara aman melalui payment gateway resmi).</li>
-            <li><strong>Data Navigasi:</strong> Alamat IP, tipe perangkat, dan perilaku browsing melalui cookie untuk kebutuhan analisis statistik media.</li>
+            <li><strong>Data Transaksi:</strong> ID Game, nomor WhatsApp, dan data pembayaran saat Anda menggunakan layanan ReatrixShop.</li>
+            <li><strong>Data Log:</strong> Alamat IP, jenis browser, dan halaman yang dikunjungi untuk keperluan analisis statistik pembaca ReatrixWeb.</li>
         </ul>
 
-        <h3>2. Penggunaan Informasi</h3>
-        <p>Informasi Anda digunakan untuk:</p>
+        <h3>2. Penggunaan Data</h3>
+        <p>Data Anda digunakan secara eksklusif untuk:</p>
         <ul>
-            <li>Memproses pesanan top-up di ReatrixShop secara instan.</li>
-            <li>Mengirimkan notifikasi status transaksi melalui WhatsApp/Email.</li>
-            <li>Menganalisis minat konten pembaca pada portal ReatrixWeb.</li>
-            <li>Memenuhi kewajiban hukum dan pencegahan penyalahgunaan (fraud).</li>
+            <li>Memproses pesanan digital Anda secara tepat waktu.</li>
+            <li>Memberikan dukungan pelanggan dan penyelesaian kendala transaksi.</li>
+            <li>Meningkatkan pengalaman pengguna berdasarkan preferensi konten pembaca.</li>
         </ul>
 
         <h3>3. Keamanan Data</h3>
-        <p>Kami menerapkan standar keamanan SSL (Secure Socket Layer) untuk enkripsi transmisi data. Seluruh data transaksi sensitif diproses oleh penyedia layanan pembayaran yang telah berlisensi Bank Indonesia dan memenuhi standar kepatuhan PCI-DSS.</p>
+        <p>Kami menggunakan enkripsi standar industri untuk melindungi transmisi data Anda. Kami menjamin bahwa data pribadi Anda <strong>tidak akan dijual atau dibagikan</strong> kepada pihak ketiga untuk tujuan komersial di luar ekosistem Reatrix Network.</p>
 
-        <h3>4. Hak Pengguna</h3>
-        <p>Anda berhak untuk meminta klarifikasi mengenai data pribadi Anda yang kami simpan. Untuk permintaan penghapusan data atau keberatan terkait penggunaan data, Anda dapat menghubungi kami melalui saluran resmi yang tersedia.</p>
+        <h3>4. Penggunaan Cookies</h3>
+        <p>Situs kami menggunakan cookies untuk menyimpan preferensi sesi dan mengoptimalkan kecepatan akses. Anda dapat mengatur browser Anda untuk menolak cookies, namun beberapa fitur situs mungkin tidak berfungsi secara maksimal.</p>
 
-        <h3>5. Perubahan Kebijakan</h3>
-        <p>Reatrix Network berhak memperbarui kebijakan privasi ini sewaktu-waktu. Perubahan akan segera berlaku setelah diunggah ke halaman ini.</p>
+        <h3>5. Persetujuan</h3>
+        <p>Dengan terus menggunakan layanan kami, Anda dianggap menyetujui praktik privasi yang dijelaskan dalam halaman ini.</p>
 
-        <div class="footer-note">
-            Kebijakan Privasi ini merupakan bagian tak terpisahkan dari ekosistem digital<br>
-            <strong>PT REATRIX MEDIA INDONESIA & PT REATRIX DIGITAL INDOKARYA</strong>
+        <div class="footer-line">
+            &copy; 2026 Reatrix Network. Data Protection & Privacy Office.
         </div>
     </div>
 
