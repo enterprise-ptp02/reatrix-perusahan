@@ -287,14 +287,24 @@
                 <span class="pt-tag">PT REATRIX MEDIA INDONESIA</span>
                 <h3>ReatrixWeb</h3>
                 <p>Media jurnalisme paling berpengaruh bagi tech-enthusiast dan gamer Indonesia.</p>
-                <a href="https://www.reatrixweb.com">Visit Platform →</a>
+                <a href="https://www.reatrixweb.com">Visit Platform →</a>     
             </div>
+
+<div class="latest-posts" id="web-posts">
+    <p>Memuat artikel terbaru...</p>
+</div>
+            
             <div class="entity-card">
                 <span class="pt-tag">PT REATRIX DIGITAL INDOKARYA</span>
                 <h3>ReatrixShop</h3>
                 <p>Solusi top-up otomatis tercepat dengan sistem pembayaran legal dan aman.</p>
                 <a href="https://www.reatrixshop.com">Shop Now →</a>
             </div>
+
+<div class="latest-posts" id="shop-posts">
+    <p>Memuat produk terbaru...</p>
+</div>
+            
         </section>
 
         <section class="reviews">
@@ -371,5 +381,39 @@
         <div class="copyright">Copyright © 2026 Reatrix Network, all right reversed.</div>
     </footer>
 
+<script>
+function fetchBloggerFeed(url, containerId) {
+    // Menggunakan RSS2JSON agar data RSS Blogspot bisa dibaca sebagai JSON
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
+
+    fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ""; // Hapus teks memuat
+            
+            // Ambil 3 postingan terbaru saja
+            data.items.slice(0, 3).forEach(item => {
+                const postElement = `
+                    <div style="margin-bottom: 10px; font-size: 14px;">
+                        <a href="${item.link}" target="_blank" style="color: var(--p); text-decoration: none; font-weight: 600;">
+                            • ${item.title}
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += postElement;
+            });
+        })
+        .catch(err => {
+            console.error("Gagal memuat feed", err);
+        });
+}
+
+// Panggil fungsi untuk masing-masing blogspot kamu
+// Ganti URL-nya dengan alamat blogspot unit bisnis kamu yang asli
+fetchBloggerFeed('https://nama-web-kamu.blogspot.com/feeds/posts/default?alt=rss', 'web-posts');
+fetchBloggerFeed('https://nama-shop-kamu.blogspot.com/feeds/posts/default?alt=rss', 'shop-posts');
+</script>
+    
 </body>
 </html>
