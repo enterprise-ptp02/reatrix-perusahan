@@ -3,133 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Profile | Reatrix Network - PT Reatrix Media Indonesia</title>
     
-    <title>About Us | Reatrix Network - Building Digital Ecosystem</title>
-    <meta name="description" content="Pelajari lebih lanjut tentang Reatrix Network, holding company yang berfokus pada inovasi media digital dan infrastruktur commerce di Indonesia.">
-    <meta name="author" content="Reatrix Network">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --p: #2563eb;
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
             --dark: #0f172a;
-            --slate: #64748b;
-            --bg: #f8fafc;
+            --light: #f8fafc;
+            --border: #e2e8f0;
         }
 
+        * { box-sizing: border-box; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--bg);
             margin: 0;
-            padding: 0;
+            line-height: 1.7;
+            color: #334155;
+            background-color: var(--light);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .header {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
             color: white;
-            border-radius: 0 0 40px 40px;
+            padding: 100px 20px;
+            text-align: center;
         }
 
-        .content {
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        /* Content Layout */
+        .main-content {
+            max-width: 1000px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
             background: white;
-            padding: 40px;
             border-radius: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-top: -50px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
 
-        h1 { font-weight: 800; margin-bottom: 10px; }
-        h2 { color: var(--p); margin-top: 30px; }
-        
-        .pt-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        .stats {
+        /* Professional Intro */
+        .intro-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1分);
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            align-items: center;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-top: 0;
+        }
+
+        /* Pillar Boxes */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin: 40px 0;
         }
 
-        .stat-card {
+        .pillar-item {
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .pillar-item:hover {
+            border-color: var(--primary);
             background: #f1f5f9;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--slate);
-            font-size: 14px;
+        .pillar-item h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+            font-size: 1.3rem;
         }
 
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
+        /* Core Values */
+        .values-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .values-list li {
+            padding-left: 30px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .values-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        /* Corporate Footer */
+        .corp-footer {
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+            margin-top: 50px;
+        }
+
+        .btn-home {
+            background: var(--dark);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            color: var(--p);
             font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: var(--primary);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .intro-grid { grid-template-columns: 1fr; }
+            .card { padding: 30px; }
+            .values-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>About Us</h1>
-        <div class="pt-badge">PT REATRIX MEDIA INDONESIA</div>
-    </div>
+    <header class="hero">
+        <span class="section-label" style="color: var(--accent);">Corporate Profile</span>
+        <h1>Reatrix Network</h1>
+        <p>Garda Terdepan Inovasi Digital dan Infrastruktur Ekosistem Media Indonesia.</p>
+    </header>
 
-    <div class="container">
-        <div class="content">
-            <h2>Visi Kami</h2>
-            <p>Reatrix Network didirikan dengan visi untuk menjadi pusat inovasi digital terintegrasi di Indonesia. Kami percaya bahwa sinergi antara informasi yang akurat dan aksesibilitas teknologi adalah kunci pertumbuhan ekonomi digital di masa depan.</p>
-
-            <h2>Misi Perusahaan</h2>
-            <ul>
-                <li>Membangun infrastruktur media digital yang edukatif dan menghibur.</li>
-                <li>Menyediakan platform commerce digital yang aman dan terpercaya bagi masyarakat.</li>
-                <li>Mengembangkan ekosistem teknologi yang mendukung unit bisnis lokal agar berskala nasional.</li>
-            </ul>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <h3>Media</h3>
-                    <p>ReatrixWeb Group</p>
+    <main class="main-content">
+        <div class="card">
+            
+            <section class="intro-grid">
+                <div>
+                    <span class="section-label">Executive Summary</span>
+                    <h2>Membangun Masa Depan Melalui Sinergi Teknologi.</h2>
                 </div>
-                <div class="stat-card">
-                    <h3>Commerce</h3>
-                    <p>ReatrixShop System</p>
+                <div>
+                    <p>
+                        <strong>Reatrix Network</strong> adalah holding group (perusahaan induk) strategis yang berfokus pada pengembangan ekosistem media digital dan solusi commerce terintegrasi di Indonesia. 
+                    </p>
+                    <p>
+                        Beroperasi di bawah identitas hukum <strong>PT Reatrix Media Indonesia</strong>, kami mengelola aset-aset digital yang dirancang untuk menjawab tantangan era ekonomi baru melalui jurnalisme berkualitas dan sistem transaksi yang modern.
+                    </p>
+                </div>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 50px 0;">
+
+            <span class="section-label">Business Pillars</span>
+            <h2>Unit Bisnis Strategis</h2>
+            <div class="pillars">
+                <div class="pillar-item">
+                    <h3>Digital Media</h3>
+                    <p>Melalui <strong>ReatrixWeb</strong>, kami menghadirkan konten jurnalisme teknologi dan gaming yang mendalam untuk jutaan pembaca di Indonesia.</p>
+                </div>
+                <div class="pillar-item">
+                    <h3>Digital Commerce</h3>
+                    <p><strong>ReatrixShop</strong> menyediakan infrastruktur layanan produk digital yang aman, cepat, dan terpercaya bagi pasar B2C dan B2B.</p>
+                </div>
+                <div class="pillar-item">
+                    <h3>Infrastructure</h3>
+                    <p>Pengembangan sistem API dan integrasi platform yang mendukung skalabilitas bisnis digital di bawah naungan grup kami.</p>
                 </div>
             </div>
 
-            <h2>Filosofi Brand</h2>
-            <p>Nama <strong>Reatrix</strong> melambangkan keberanian untuk melakukan regenerasi teknologi (Re-) melalui struktur yang kuat (-atrix). Sebagai Holding, kami berperan sebagai fondasi bagi setiap unit bisnis untuk berkembang lebih cepat dan lebih aman.</p>
-            
-            <a href="index.html" class="btn-back">← Kembali ke Beranda</a>
-        </div>
+            <section style="margin-top: 60px;">
+                <span class="section-label">Vision & Values</span>
+                <h2>Visi & Nilai Perusahaan</h2>
+                <p>Menjadi entitas holding terpercaya yang menguasai ekosistem digital nasional melalui tiga prinsip utama:</p>
+                <ul class="values-list">
+                    <li><strong>Integrity:</strong> Transparansi dalam setiap layanan dan konten.</li>
+                    <li><strong>Innovation:</strong> Adaptasi tanpa henti pada tren teknologi global.</li>
+                    <li><strong>Impact:</strong> Memberikan nilai tambah bagi mitra dan pengguna.</li>
+                    <li><strong>Security:</strong> Keamanan data dan transaksi sebagai prioritas utama.</li>
+                </ul>
+            </section>
 
-        <div class="footer">
-            &copy; 2026 Reatrix Network. All Rights Reserved.
+            <footer class="corp-footer">
+                <p style="margin-bottom: 25px;">Tertarik untuk berkolaborasi atau mengetahui lebih lanjut?</p>
+                <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+                <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 40px;">
+                    &copy; 2026 PT Reatrix Media Indonesia. Seluruh hak cipta dilindungi.
+                </p>
+            </footer>
+
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
