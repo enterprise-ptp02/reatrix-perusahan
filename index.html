@@ -429,12 +429,8 @@
         <div class="copyright">Copyright © 2026 Reatrix Network, all right reversed.</div>
     </footer>
 
-<script>
-function loadBloggerFeed(domainUrl, containerId) {
-    // Menghapus 'www.' dan memastikan format URL benar untuk feed
-    const cleanUrl = domainUrl.replace(/\/$/, ""); 
-    const feedUrl = cleanUrl + '/feeds/posts/default?alt=json-in-script&max-results=3&callback=show' + containerId;
-    
+function loadBloggerFeed(blogUrl, containerId) {
+    const feedUrl = blogUrl.replace(/\/$/, "") + '/feeds/posts/default?alt=json-in-script&max-results=3&callback=show' + containerId;
     const script = document.createElement('script');
     
     window['show' + containerId] = function(json) {
@@ -444,9 +440,13 @@ function loadBloggerFeed(domainUrl, containerId) {
         if (json.feed && json.feed.entry) {
             json.feed.entry.forEach(entry => {
                 const title = entry.title.$t;
-                let link = entry.link.find(l => l.rel === 'alternate').href;
+                // Mengambil link asli
+                let rawLink = entry.link.find(l => l.rel === 'alternate').href;
                 
-                // Mengambil gambar thumbnail
+                // OTOMATIS: Mengubah link .blogspot.com menjadi .com (Domain Utama Kamu)
+                let link = rawLink.replace('reatrixweb.blogspot.com', 'www.reatrixweb.com')
+                                  .replace('reatrixshop.blogspot.com', 'www.reatrixshop.com');
+                
                 let imgUrl = entry.media$thumbnail 
                     ? entry.media$thumbnail.url.replace('s72-c', 's150-c') 
                     : 'https://network.reatrixweb.com/logo.png';
@@ -457,27 +457,17 @@ function loadBloggerFeed(domainUrl, containerId) {
                         <div class="feed-info">
                             <div class="feed-title">${title}</div>
                         </div>
-                    </a>
-                `;
+                    </a>`;
             });
             container.innerHTML = html;
         } else {
-            container.innerHTML = '<span class="loading">Tidak ada postingan ditemukan.</span>';
+            container.innerHTML = '<span class="loading">Belum ada postingan.</span>';
         }
-    };
-
-    script.onerror = function() {
-        document.getElementById(containerId).innerHTML = '<span class="loading">Gagal memuat data. Pastikan Feed RSS Aktif.</span>';
     };
 
     script.src = feedUrl;
     document.body.appendChild(script);
 }
-
-// PANGGIL MENGGUNAKAN PROTOKOL HTTPS LENGKAP
-loadBloggerFeed('https://www.reatrixweb.com', 'web-posts');
-loadBloggerFeed('https://www.reatrixshop.com', 'shop-posts');
-</script>
     
 </body>
 </html>
