@@ -428,46 +428,48 @@
         </div>
         <div class="copyright">Copyright © 2026 Reatrix Network, all right reversed.</div>
     </footer>
+<script>
+function loadBloggerFeed(url, containerId) {
+    // Menggunakan RSS2JSON Service agar data bisa ditarik tanpa blokir CORS
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url + '/feeds/posts/default?alt=rss')}`;
 
-function loadBloggerFeed(blogUrl, containerId) {
-    const feedUrl = blogUrl.replace(/\/$/, "") + '/feeds/posts/default?alt=json-in-script&max-results=3&callback=show' + containerId;
-    const script = document.createElement('script');
-    
-    window['show' + containerId] = function(json) {
-        const container = document.getElementById(containerId);
-        let html = '';
-        
-        if (json.feed && json.feed.entry) {
-            json.feed.entry.forEach(entry => {
-                const title = entry.title.$t;
-                // Mengambil link asli
-                let rawLink = entry.link.find(l => l.rel === 'alternate').href;
-                
-                // OTOMATIS: Mengubah link .blogspot.com menjadi .com (Domain Utama Kamu)
-                let link = rawLink.replace('reatrixweb.blogspot.com', 'www.reatrixweb.com')
-                                  .replace('reatrixshop.blogspot.com', 'www.reatrixshop.com');
-                
-                let imgUrl = entry.media$thumbnail 
-                    ? entry.media$thumbnail.url.replace('s72-c', 's150-c') 
-                    : 'https://network.reatrixweb.com/logo.png';
-                
-                html += `
-                    <a href="${link}" target="_blank" class="feed-item">
-                        <img src="${imgUrl}" class="feed-img" alt="${title}">
-                        <div class="feed-info">
-                            <div class="feed-title">${title}</div>
-                        </div>
-                    </a>`;
-            });
-            container.innerHTML = html;
-        } else {
-            container.innerHTML = '<span class="loading">Belum ada postingan.</span>';
-        }
-    };
+    fetch(apiUrl)
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById(containerId);
+            let html = '';
 
-    script.src = feedUrl;
-    document.body.appendChild(script);
-}
+            if (data.status === 'ok' && data.items.length > 0) {
+                data.items.slice(0, 3).forEach(item => {
+                    // Mencari gambar di dalam konten jika thumbnail tidak ada
+                    let imgUrl = item.thumbnail ? item.thumbnail : 'https://network.reatrixweb.com/logo.png';
+                    
+                    // Membersihkan judul dari karakter aneh
+                    const title = item.title;
+                    const link = item.link;
+
+                    html += `
+                        <a href="${link}" target="_blank" class="feed-item">
+                            <img src="${imgUrl}" class="feed-img" onerror="this.src='https://network.reatrixweb.com/logo.png'" alt="${title}">
+                            <div class="feed-info">
+                                <div class="feed-title">${title}</div>
+                            </div>
+                        </a>`;
+                });
+                container.innerHTML = html;
+            } else {
+                container.innerHTML = '<span class="loading">Belum ada konten terbaru.</span>';
+            }
+        })
+        .catch(err => {
+            console.error("Error loading feed:", err);
+            document.getElementById(containerId).innerHTML = '<span class="loading">Koneksi terputus, coba refresh.</span>';
+        });
+}</script>
+
+// Panggil menggunakan domain utama (www)
+loadBloggerFeed('https://www.reatrixweb.com', 'web-posts');
+loadBloggerFeed('https://www.reatrixshop.com', 'shop-posts');
     
 </body>
 </html>
