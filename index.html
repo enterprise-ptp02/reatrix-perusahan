@@ -430,23 +430,26 @@
     </footer>
 
 <script>
-function loadBloggerFeed(blogUrl, containerId) {
-    const feedUrl = blogUrl + '/feeds/posts/default?alt=json-in-script&max-results=3&callback=show' + containerId;
+function loadBloggerFeed(domainUrl, containerId) {
+    // Menghapus 'www.' dan memastikan format URL benar untuk feed
+    const cleanUrl = domainUrl.replace(/\/$/, ""); 
+    const feedUrl = cleanUrl + '/feeds/posts/default?alt=json-in-script&max-results=3&callback=show' + containerId;
+    
     const script = document.createElement('script');
     
     window['show' + containerId] = function(json) {
         const container = document.getElementById(containerId);
         let html = '';
         
-        if (json.feed.entry) {
+        if (json.feed && json.feed.entry) {
             json.feed.entry.forEach(entry => {
                 const title = entry.title.$t;
                 let link = entry.link.find(l => l.rel === 'alternate').href;
                 
-                // Mengambil gambar dari media$thumbnail atau mencari di dalam konten
+                // Mengambil gambar thumbnail
                 let imgUrl = entry.media$thumbnail 
-                    ? entry.media$thumbnail.url.replace('s72-c', 's150-c') // Perbesar resolusi thumbnail
-                    : 'https://network.reatrixweb.com/logo.png'; // Fallback ke logo jika tak ada gambar
+                    ? entry.media$thumbnail.url.replace('s72-c', 's150-c') 
+                    : 'https://network.reatrixweb.com/logo.png';
                 
                 html += `
                     <a href="${link}" target="_blank" class="feed-item">
@@ -459,15 +462,19 @@ function loadBloggerFeed(blogUrl, containerId) {
             });
             container.innerHTML = html;
         } else {
-            container.innerHTML = '<span class="loading">Belum ada konten terbaru.</span>';
+            container.innerHTML = '<span class="loading">Tidak ada postingan ditemukan.</span>';
         }
+    };
+
+    script.onerror = function() {
+        document.getElementById(containerId).innerHTML = '<span class="loading">Gagal memuat data. Pastikan Feed RSS Aktif.</span>';
     };
 
     script.src = feedUrl;
     document.body.appendChild(script);
 }
 
-// Panggil dengan URL Blogspot aslimu
+// PANGGIL MENGGUNAKAN PROTOKOL HTTPS LENGKAP
 loadBloggerFeed('https://www.reatrixweb.com', 'web-posts');
 loadBloggerFeed('https://www.reatrixshop.com', 'shop-posts');
 </script>
